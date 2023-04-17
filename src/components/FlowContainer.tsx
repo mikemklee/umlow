@@ -1,7 +1,7 @@
 import ReactFlow, { Controls, Background } from "reactflow";
 import "reactflow/dist/style.css";
 
-function Flow() {
+export default function Flow() {
   return (
     <ReactFlow>
       <Background />
@@ -9,5 +9,3 @@ function Flow() {
     </ReactFlow>
   );
 }
-
-export default Flow;
