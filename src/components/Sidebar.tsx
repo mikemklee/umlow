@@ -1,6 +1,7 @@
 import React from "react";
 
 import NodeDraggable from "./Nodes/NodeDraggable";
+import CollapsiblePanel from "./CollapsiblePanel";
 
 export default function Sidebar() {
   const onDragStart = (event, nodeType) => {
@@ -30,10 +31,7 @@ export default function Sidebar() {
         umlow
       </div>
       <aside className="p-4">
-        <div className="text-sm ">
-          You can drag these nodes to the pane on the right - try it out!
-        </div>
-        <div className="mt-4">
+        <CollapsiblePanel title="nodes">
           {draggables.map(({ nodeType, label }) => (
             <NodeDraggable
               key={nodeType}
@@ -42,7 +40,7 @@ export default function Sidebar() {
               {label}
             </NodeDraggable>
           ))}
-        </div>
+        </CollapsiblePanel>
       </aside>
     </div>
   );
