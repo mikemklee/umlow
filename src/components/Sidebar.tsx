@@ -11,14 +11,17 @@ export default function Sidebar() {
 
   const draggables = [
     {
+      color: "#F2ff22",
       nodeType: "output",
       label: "Output node",
     },
     {
+      color: "#2fff2f",
       nodeType: "input",
       label: "Input node",
     },
     {
+      color: "#ff2f2f",
       nodeType: "custom",
       label: "Custom node",
     },
@@ -32,9 +35,10 @@ export default function Sidebar() {
       </div>
       <aside className="">
         <CollapsiblePanel title="nodes">
-          {draggables.map(({ nodeType, label }) => (
+          {draggables.map(({ nodeType, color, label }) => (
             <NodeDraggable
               key={nodeType}
+              color={color}
               onDragStart={(event) => onDragStart(event, nodeType)}
             >
               {label}
