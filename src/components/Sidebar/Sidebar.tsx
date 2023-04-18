@@ -6,24 +6,27 @@ import CollapsiblePanel from "../CollapsiblePanel";
 import styles from "./Sidebar.module.css";
 
 export default function Sidebar() {
-  const onDragStart = (event, nodeType) => {
+  const onDragStart = (
+    event: React.DragEvent<HTMLDivElement>,
+    nodeType: string
+  ) => {
     event.dataTransfer.setData("application/reactflow", nodeType);
     event.dataTransfer.effectAllowed = "move";
   };
 
   const draggables = [
     {
-      color: "#F2ff22",
+      color: "#f2ad0d",
       nodeType: "output",
       label: "Output node",
     },
     {
-      color: "#2fff2f",
+      color: "#644db3",
       nodeType: "input",
       label: "Input node",
     },
     {
-      color: "#ff2f2f",
+      color: "#b34d70",
       nodeType: "custom",
       label: "Custom node",
     },

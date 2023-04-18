@@ -121,6 +121,9 @@ export default function FlowContainer() {
         fitView
         attributionPosition="top-right"
         nodeTypes={nodeTypes}
+        proOptions={{
+          hideAttribution: true,
+        }}
       >
         <MiniMap style={minimapStyle} zoomable pannable />
         <Controls />
