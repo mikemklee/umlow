@@ -35,7 +35,7 @@ const CollapsiblePanel: React.FC<CollapsiblePanelProps> = ({
   return (
     <div className="overflow-hidden">
       <div
-        className="cursor-pointer px-4 py-3 rounded-t-md flex items-center justify-between"
+        className="cursor-pointer px-4 py-3 rounded-t-md flex items-center justify-between hover:bg-gray-50 transition-colors"
         onClick={togglePanel}
       >
         <h2 className="font-semibold">{title}</h2>

@@ -31,9 +31,9 @@ export default function Sidebar() {
   ];
 
   return (
-    <div className="bg-white w-80 border-r border-gray-200">
+    <div className="bg-white w-80 border-r border-gray-200 flex flex-col">
       <div className={styles.sitename}>umlow</div>
-      <aside className="">
+      <aside className="border-t border-gray-200">
         <CollapsiblePanel title="nodes">
           {draggables.map(({ nodeType, color, label }) => (
             <NodeDraggable

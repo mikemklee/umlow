@@ -9,7 +9,7 @@ interface Props {
 const NodeDraggable: React.FC<Props> = (props) => {
   return (
     <div
-      className="mx-4 my-2 border rounded-md h-10 flex items-center overflow-clip"
+      className="mx-4 my-2 border rounded-md h-10 flex items-center overflow-clip cursor-pointer hover:bg-gray-50 transition-colors"
       onDragStart={props.onDragStart}
       draggable
     >
