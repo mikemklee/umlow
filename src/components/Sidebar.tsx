@@ -1,8 +1,8 @@
 import React from "react";
 
-import OutputNodeDraggable from "./OutputNode/OutputNodeDraggable";
-import InputNodeDraggable from "./InputNode/InputNodeDraggable";
-import CustomNodeDraggable from "./CustomNode/CustomNodeDraggable";
+import OutputNodeDraggable from "./Nodes/OutputNode/OutputNodeDraggable";
+import InputNodeDraggable from "./Nodes/InputNode/InputNodeDraggable";
+import CustomNodeDraggable from "./Nodes/CustomNode/CustomNodeDraggable";
 
 export default function Sidebar() {
   const onDragStart = (event, nodeType) => {

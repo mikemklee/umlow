@@ -10,9 +10,9 @@ import ReactFlow, {
 
 import "reactflow/dist/style.css";
 
-import CustomNode from "./CustomNode/CustomNode";
-import InputNode from "./InputNode/InputNode";
-import OutputNode from "./OutputNode/OutputNode";
+import CustomNode from "./Nodes/CustomNode/CustomNode";
+import InputNode from "./Nodes/InputNode/InputNode";
+import OutputNode from "./Nodes/OutputNode/OutputNode";
 
 const nodeTypes = {
   input: InputNode,
