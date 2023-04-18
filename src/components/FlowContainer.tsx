@@ -8,11 +8,15 @@ import ReactFlow, {
   useEdgesState,
 } from "reactflow";
 
-import CustomNode from "./CustomNode";
-
 import "reactflow/dist/style.css";
 
+import CustomNode from "./CustomNode/CustomNode";
+import InputNode from "./InputNode/InputNode";
+import OutputNode from "./OutputNode/OutputNode";
+
 const nodeTypes = {
+  input: InputNode,
+  output: OutputNode,
   custom: CustomNode,
 };
 
@@ -97,7 +101,7 @@ export default function FlowContainer() {
   );
 
   return (
-    <div className="reactflow-wrapper w-full h-screen" ref={reactFlowWrapper}>
+    <div className="reactflow-wrapper w-full h-full" ref={reactFlowWrapper}>
       <ReactFlow
         nodes={nodes}
         edges={edges}
