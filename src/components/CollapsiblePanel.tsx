@@ -1,5 +1,5 @@
 import React, { useState, ReactNode, useRef, useEffect } from "react";
-
+import { FiChevronDown, FiChevronUp } from "react-icons/fi";
 interface CollapsiblePanelProps {
   title: string;
   children: ReactNode;
@@ -33,14 +33,19 @@ const CollapsiblePanel: React.FC<CollapsiblePanelProps> = ({
   };
 
   return (
-    <div className="border border-gray-300 rounded-md shadow-md overflow-hidden">
+    <div className="overflow-hidden">
       <div
-        className="cursor-pointer bg-gray-200 p-4 rounded-t-md"
+        className="cursor-pointer px-4 py-3 rounded-t-md flex items-center justify-between"
         onClick={togglePanel}
       >
-        <h2 className="text-xl font-semibold">{title}</h2>
+        <h2 className="font-semibold">{title}</h2>
+        {isOpen ? <FiChevronUp /> : <FiChevronDown />}
       </div>
-      <div ref={contentRef} style={transitionStyles} className="">
+      <div
+        ref={contentRef}
+        style={transitionStyles}
+        className={`${isOpen ? " border-t" : "border-t"}`}
+      >
         {children}
       </div>
     </div>

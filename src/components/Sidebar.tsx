@@ -30,7 +30,7 @@ export default function Sidebar() {
       <div className="h-[54px] border-b border-gray-200 flex items-center px-4 box-border">
         umlow
       </div>
-      <aside className="p-4">
+      <aside className="">
         <CollapsiblePanel title="nodes">
           {draggables.map(({ nodeType, label }) => (
             <NodeDraggable
