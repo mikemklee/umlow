@@ -6,6 +6,8 @@ import ReactFlow, {
   Background,
   useNodesState,
   useEdgesState,
+  Connection,
+  ReactFlowInstance,
 } from "reactflow";
 
 import "reactflow/dist/style.css";
@@ -27,7 +29,9 @@ const minimapStyle = {
 let id = 0;
 const getId = () => `dndnode_${id++}`;
 
-const initialDataByNodeType = {
+type NodeType = "input" | "default" | "output" | "custom";
+
+const initialDataByNodeType: Record<NodeType, any> = {
   input: {
     label: "Input Node",
   },
@@ -47,27 +51,28 @@ const initialDataByNodeType = {
 };
 
 export default function FlowContainer() {
-  const reactFlowWrapper = useRef(null);
+  const reactFlowWrapper = useRef<HTMLDivElement | null>(null);
   const [nodes, setNodes, onNodesChange] = useNodesState([]);
   const [edges, setEdges, onEdgesChange] = useEdgesState([]);
-  const [reactFlowInstance, setReactFlowInstance] = useState(null);
+  const [reactFlowInstance, setReactFlowInstance] =
+    useState<ReactFlowInstance | null>(null);
 
-  const onInit = useCallback((reactFlowInstance) => {
+  const onInit = useCallback((reactFlowInstance: ReactFlowInstance) => {
     setReactFlowInstance(reactFlowInstance);
   }, []);
 
   const onConnect = useCallback(
-    (params) => setEdges((eds) => addEdge(params, eds)),
-    []
+    (params: Connection) => setEdges((eds) => addEdge(params, eds)),
+    [setEdges]
   );
 
-  const onDragOver = useCallback((event) => {
+  const onDragOver = useCallback((event: React.DragEvent<HTMLDivElement>) => {
     event.preventDefault();
     event.dataTransfer.dropEffect = "move";
   }, []);
 
   const onDrop = useCallback(
-    (event) => {
+    (event: React.DragEvent<HTMLDivElement>) => {
       if (!reactFlowInstance || !reactFlowWrapper.current) {
         return;
       }
@@ -75,7 +80,9 @@ export default function FlowContainer() {
       event.preventDefault();
 
       const reactFlowBounds = reactFlowWrapper.current.getBoundingClientRect();
-      const type = event.dataTransfer.getData("application/reactflow");
+      const type = event.dataTransfer.getData(
+        "application/reactflow"
+      ) as NodeType;
 
       // check if the dropped element is valid
       if (typeof type === "undefined" || !type) {
