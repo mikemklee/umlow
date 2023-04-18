@@ -1,8 +1,6 @@
 import React from "react";
 
-import OutputNodeDraggable from "./Nodes/OutputNode/OutputNodeDraggable";
-import InputNodeDraggable from "./Nodes/InputNode/InputNodeDraggable";
-import CustomNodeDraggable from "./Nodes/CustomNode/CustomNodeDraggable";
+import NodeDraggable from "./Nodes/NodeDraggable";
 
 export default function Sidebar() {
   const onDragStart = (event, nodeType) => {
@@ -11,9 +9,18 @@ export default function Sidebar() {
   };
 
   const draggables = [
-    { DraggableComponent: OutputNodeDraggable, nodeType: "output" },
-    { DraggableComponent: InputNodeDraggable, nodeType: "input" },
-    { DraggableComponent: CustomNodeDraggable, nodeType: "custom" },
+    {
+      nodeType: "output",
+      label: "Output node",
+    },
+    {
+      nodeType: "input",
+      label: "Input node",
+    },
+    {
+      nodeType: "custom",
+      label: "Custom node",
+    },
     // add more nodes here as needed
   ];
 
@@ -27,11 +34,13 @@ export default function Sidebar() {
           You can drag these nodes to the pane on the right - try it out!
         </div>
         <div className="mt-4">
-          {draggables.map(({ DraggableComponent, nodeType }) => (
-            <DraggableComponent
+          {draggables.map(({ nodeType, label }) => (
+            <NodeDraggable
               key={nodeType}
               onDragStart={(event) => onDragStart(event, nodeType)}
-            />
+            >
+              {label}
+            </NodeDraggable>
           ))}
         </div>
       </aside>

@@ -1,9 +1,9 @@
 import React from "react";
 
-export default function OutputNodeDraggable(props) {
+export default function NodeDraggable(props) {
   return (
     <div className="" onDragStart={props.onDragStart} draggable>
-      Output Node
+      {props.children}
     </div>
   );
 }
