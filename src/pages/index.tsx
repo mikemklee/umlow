@@ -1,5 +1,5 @@
 import FlowContainer from "@/components/FlowContainer";
-import Sidebar from "@/components/Sidebar";
+import Sidebar from "@/components/Sidebar/Sidebar";
 import Topbar from "@/components/Topbar";
 
 import { ReactFlowProvider } from "reactflow";

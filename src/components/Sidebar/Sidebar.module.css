@@ -1,0 +1,4 @@
+.sitename {
+  font-family: "Nunito", sans-serif;
+  @apply h-[54px] border-b border-gray-200 flex items-center px-4 box-border font-semibold text-2xl cursor-pointer;
+}

@@ -1,7 +1,9 @@
 import React from "react";
 
-import NodeDraggable from "./Nodes/NodeDraggable";
-import CollapsiblePanel from "./CollapsiblePanel";
+import NodeDraggable from "../Nodes/NodeDraggable";
+import CollapsiblePanel from "../CollapsiblePanel";
+
+import styles from "./Sidebar.module.css";
 
 export default function Sidebar() {
   const onDragStart = (event, nodeType) => {
@@ -30,9 +32,7 @@ export default function Sidebar() {
 
   return (
     <div className="bg-white w-80 border-r border-gray-200">
-      <div className="h-[54px] border-b border-gray-200 flex items-center px-4 box-border">
-        umlow
-      </div>
+      <div className={styles.sitename}>umlow</div>
       <aside className="">
         <CollapsiblePanel title="nodes">
           {draggables.map(({ nodeType, color, label }) => (
