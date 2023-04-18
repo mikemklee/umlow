@@ -10,11 +10,11 @@ export default function Sidebar() {
     <div className="bg-green-200 w-72 p-4">
       umlow
       <aside>
-        <div className="description">
-          You can drag these nodes to the pane on the right.
+        <div className="text-sm ">
+          You can drag these nodes to the pane on the right - try it out!
         </div>
         <div
-          className="dndnode input"
+          className="border border-blue-200"
           onDragStart={(event) => onDragStart(event, "input")}
           draggable
         >
@@ -33,6 +33,13 @@ export default function Sidebar() {
           draggable
         >
           Output Node
+        </div>
+        <div
+          className="dndnode output"
+          onDragStart={(event) => onDragStart(event, "custom")}
+          draggable
+        >
+          Custom Node
         </div>
       </aside>
     </div>

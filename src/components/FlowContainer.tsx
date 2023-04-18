@@ -23,7 +23,26 @@ const minimapStyle = {
 let id = 0;
 const getId = () => `dndnode_${id++}`;
 
-const OverviewFlow = () => {
+const initialDataByNodeType = {
+  input: {
+    label: "Input Node",
+  },
+  default: {
+    label: "Default Node",
+  },
+  output: {
+    label: "Output Node",
+  },
+  custom: {
+    label: "Custom Node",
+    selects: {
+      "handle-0": "smoothstep",
+      "handle-1": "smoothstep",
+    },
+  },
+};
+
+export default function FlowContainer() {
   const reactFlowWrapper = useRef(null);
   const [nodes, setNodes, onNodesChange] = useNodesState([]);
   const [edges, setEdges, onEdgesChange] = useEdgesState([]);
@@ -59,6 +78,8 @@ const OverviewFlow = () => {
         return;
       }
 
+      const initialNodeData = initialDataByNodeType[type];
+
       const position = reactFlowInstance.project({
         x: event.clientX - reactFlowBounds.left,
         y: event.clientY - reactFlowBounds.top,
@@ -67,7 +88,7 @@ const OverviewFlow = () => {
         id: getId(),
         type,
         position,
-        data: { label: `${type} node` },
+        data: { ...initialNodeData },
       };
 
       setNodes((nds) => nds.concat(newNode));
@@ -92,10 +113,8 @@ const OverviewFlow = () => {
       >
         <MiniMap style={minimapStyle} zoomable pannable />
         <Controls />
-        <Background color="#aaa" gap={16} />
+        <Background gap={16} />
       </ReactFlow>
     </div>
   );
-};
-
-export default OverviewFlow;
+}
