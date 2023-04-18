@@ -1,8 +1,6 @@
 import React, { memo } from "react";
 import { Handle, useReactFlow, useStoreApi, Position } from "reactflow";
 
-import "./custom-node.module.css";
-
 const options = [
   {
     value: "smoothstep",

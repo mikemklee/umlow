@@ -1,13 +1,15 @@
 import FlowContainer from "@/components/FlowContainer";
 import Sidebar from "@/components/Sidebar";
 
+import { ReactFlowProvider } from "reactflow";
+
 export default function Home() {
   return (
     <main className="flex min-h-screen ">
-      <Sidebar />
-      <div className="w-full h-screen">
+      <ReactFlowProvider>
+        <Sidebar />
         <FlowContainer />
-      </div>
+      </ReactFlowProvider>
     </main>
   );
 }
